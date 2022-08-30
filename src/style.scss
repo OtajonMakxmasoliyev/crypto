@@ -8,10 +8,128 @@
     src: url(./style/Poppins/Poppins-Medium.ttf);
 }
 
+@font-face {
+    font-family: "Poppins-Large";
+    src: url(./style/Poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(./style/Roboto/Roboto-Regular.ttf);
+}
+
+
+@mixin title {
+    font-family: "Poppins-Large";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: #FEFEFE
+}
+
+@mixin balance {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+@mixin coinFont {
+    font-family: 'Poppins-Medium';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+    color: #FEFEFE;
+}
+
+
+
 body {
     margin: 0;
     background: #202020;
 }
+
+.home {
+    display: flex;
+
+    &>.mainBlock {
+        width: fit-content;
+
+        &>.assets {
+            width: 438px;
+            height: 372px;
+            border-radius: 20px;
+            background-color: #000;
+            margin: 150px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: left;
+            z-index: 2;
+            border: 20px solid #0000;
+            text-align: left;
+
+            &>h3 {
+                @include title();
+                width: 100%;
+                margin: 0;
+                margin-left: 3px;
+                margin-top: 4px;
+
+            }
+
+            &>.balance {
+                @include balance();
+                letter-spacing: 0.25px;
+                color: #F6F6F6;
+            }
+
+            &>.total {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                &>.youcoin {
+                    @include coinFont();
+                }
+
+                &>.startcoin {
+                    @include coinFont();
+                    font-size: 12px;
+                }
+
+                &>.percent {
+                    position: absolute;
+                    height: 24px;
+
+                    /* Dark/BG-2 */
+
+                    background: #1b9462a3;
+                    opacity: 0.9;
+                    box-shadow: 0px 8px 24px rgba(28, 246, 46, 0.394);
+                    border-radius: 10px;
+                    color: #07F8B5;
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                    padding: 2px 8px;
+                    font-family: "Poppins-Large";
+                    left: 148px;
+                }
+            }
+
+        }
+    }
+
+
+}
+
 
 .navbar {
     width: 224px;
