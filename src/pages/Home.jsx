@@ -5,8 +5,10 @@ import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import Navbar from '../components/Navbar';
-import LineChart from '../components/linechart';
+import LineChart from '../components/LineChart';
 import CodeJson from "../components/code.json"
+import CryptoBalance from '../components/CryptoBalance';
+
 
 
 const Code = CodeJson;
@@ -39,10 +41,12 @@ export default class Home extends React.Component {
                             <span style={{ color: "white" }} className="startcoin">$ {this.state.startYourCoin}</span>
                             <span className="percent"><ArrowDropUpIcon /> {Percent}% </span>
                         </div>
-
-
                         <LineChart />
                     </div>
+                    <div className="mainBlock_CryptoMain">
+                        <CryptoBalance nechta={6} />
+                    </div>
+                    
                 </div>
             </div>
         )

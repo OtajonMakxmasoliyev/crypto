@@ -31,7 +31,6 @@ export default class LineChart extends React.Component {
         this.state = {
             data: {
                 labels: Code.data.coins.map((x) => x.price),
-                // labels: [],
                 datasets: [
                     {
                         label: Code.data.stats.totalCoins,
@@ -93,9 +92,11 @@ export default class LineChart extends React.Component {
         //     console.log(this.state.data.datasets[i].backgroundColor);
 
         // }
+
+        console.log(Code);
         return (
-            <div style={{ width: "150%", height: "53%", boxSizing: "border-box", overflow: "hidden", }} >
-                <Line width={"130%"} height={50} ref={this.colorPickerRef} options={{
+            <div style={{ boxSizing: "border-box", overflow: "hidden", }} >
+                <Line ref={this.colorPickerRef} options={{
                     responsive: true,
                     plugins: {
                         legend: {
