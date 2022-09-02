@@ -62,6 +62,7 @@ body {
         border: 1px solid red;
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
 
         &>.assets {
             width: 438px;

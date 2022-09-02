@@ -14,7 +14,10 @@
     "chart.js": "^3.9.1",
     "dayjs": "^1.11.5",
     "faker": "^6.6.6",
+    "fs": "^0.0.1-security",
+    "fs-react": "^0.0.4",
     "node": "^16.17.0",
+    "node-fetch": "^3.2.10",
     "puppeteer": "^16.2.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
@@ -25,9 +28,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "date": "node ./src/components/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "node ./src/components/server.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

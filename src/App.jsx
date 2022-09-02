@@ -11,8 +11,8 @@ import CandleStick from "./components/CandleStick";
 function App() {
   return (
     <div className="App">
-      {/* <Home /> */}
-      <CandleStick />
+      <Home />
+      {/* <CandleStick /> */}
     </div>
   );
 }

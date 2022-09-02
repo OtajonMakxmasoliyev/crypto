@@ -25,6 +25,9 @@ ChartJS.register(
     Legend, Filler
 );
 
+
+
+
 export default class LineChart extends React.Component {
     constructor(props) {
         super(props);
@@ -38,7 +41,7 @@ export default class LineChart extends React.Component {
                         data: Code.data.stats.total24hVolume,
                         borderColor: "#15A9FE",
                         fill: true,
-                        tension: 0.3
+                        tension: 0.3,
 
                     }
                 ]
@@ -65,13 +68,13 @@ export default class LineChart extends React.Component {
         let colors = ["#1573FE", "#1573FE"];
 
         const data = this.state.data
-        // if (data.datasets) {
-        //     data.datasets.forEach((set, i) => {
-        //         set.backgroundColor = grd(colors[i]);
-        //         console.log(typeof colors[i]);
-        //         // set.backgroundColor = colors[i]
-        //     })
-        // }
+        if (data.datasets) {
+            data.datasets.forEach((set, i) => {
+                set.backgroundColor = grd(colors[i]);
+                // console.log(typeof colors[i]);
+                // set.backgroundColor = colors[i]
+            })
+        }
         data.datasets.map(x => {
             x.backgroundColor = grd("#1573FE")
 
@@ -88,27 +91,30 @@ export default class LineChart extends React.Component {
 
     render() {
 
-        // for (let i = 0; i < 2; i++) {
-        //     console.log(this.state.data.datasets[i].backgroundColor);
-
-        // }
-
-        console.log(Code);
+        console.log(Code.data);
         return (
-            <div style={{ boxSizing: "border-box", overflow: "hidden", }} >
+            <div className="chart" style={{ boxSizing: "border-box", overflow: "hidden", }} >
                 <Line ref={this.colorPickerRef} options={{
+                    elements: {
+                        point: {
+                            radius: 1
+                        }
+                    },
                     responsive: true,
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            usePointStyle: true
                         }
                     },
                     scales: {
                         x: {
-                            ticks: false
+                            ticks: true,
+                            display: false
                         },
                         y: {
-                            beginAtZero: true,
                             display: false,
                             drawBorder: true
                         }

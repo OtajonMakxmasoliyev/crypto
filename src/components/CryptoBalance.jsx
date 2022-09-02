@@ -23,7 +23,7 @@ const CryptoBalance = (props) => {
                         data: json[i].sparkline,
                         borderColor: json[i].color,
                         fill: true,
-                        tension: 1
+                        tension: 0.7
 
                     }
                 ]
@@ -75,10 +75,10 @@ const CryptoBalance = (props) => {
                         <div className="cryptosBlock__block_bottom">
                             <p>PNL daily</p>
                             {
-                                parseInt(x.change) > 0 ? <span style={{ color: "#07F8B5" }}>{parseFloat(x.change).toFixed(6)}</span> : <span style={{ color: "#FF5361" }}>{parseFloat(x.change).toFixed(2)}</span>
+                                parseFloat(x.change) > 0 ? <span style={{ color: "#07F8B5" }}>{parseFloat(x.change).toFixed(6)}</span> : <span style={{ color: "#FF5361" }}>{parseFloat(x.change).toFixed(6)}</span>
                             }
                             {
-                                parseInt(x.changePercent) > 0 ? <span style={{ color: "#07F8B5", background: "#07F8B571" }}>{x.changePercent}%</span> : <span style={{ color: "#FF5345", background: "#FF536171" }}>{x.changePercent}%</span>
+                                parseFloat(x.changePercent) > 0 ? <span style={{ color: "#07F8B5", background: "#07F8B571" }}>{x.changePercent}%</span> : <span style={{ color: "#FF5345", background: "#FF536171" }}>{x.changePercent}%</span>
                             }
                         </div>
                     </div>
