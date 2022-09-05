@@ -1,3 +1,36 @@
+// import React from "react";
+// import ReactApexChart from "react-apexcharts";
+
+// import dateFormat from 'dateformat';
+
+
+// class ApexChart extends React.Component {
+//     constructor(props) {
+//         super(props);
+
+//         this.state =
+
+
+
+
+
+
+//     render() {
+
+
+
+
+
+//         return (
+
+
+//             <div id="chart" >
+//                 <ReactApexChart options={this.state.options} series={this.state.series} type="candlestick" height={350} />
+//             </div>)
+//     }
+// }
+
+// export default ApexChart
 
 import React from "react";
 import ReactApexChart from "react-apexcharts";
@@ -6,7 +39,7 @@ import dateFormat from 'dateformat';
 
 import Code from "./code.json"
 
-const CandleStick = (props) => {
+const Test = () => {
     const data = {
 
         series: [{
@@ -48,7 +81,7 @@ const CandleStick = (props) => {
                 type: 'category',
                 labels: {
                     formatter: function (val) {
-                        return dateFormat(val, 'mm, dd,')
+                        return dateFormat(val, ' mm,  dd,  hh mm')
                     }
                 }
             },
@@ -61,25 +94,18 @@ const CandleStick = (props) => {
 
 
     };
-
-    let index = 0
-    for (let i = 0; i < Code.data.coins.length; i++) {
-        if (Code.data.coins[i].symbol === props.simvol) {
-            index = i
-        }
-
-    }
-
-
-    const code = Code.data.coins[index].sparkline;
+    const code = Code.data.coins[0].sparkline;
     console.log(code);
     const jsonNumber = [];
 
     for (let k = 0; k < code.length; k++) {
-        jsonNumber.push(parseFloat(code[k]).toFixed(5))
+        jsonNumber.push(parseFloat(code[k]).toFixed(0))
 
     };
+    for (let k = 0; k < code.length; k++) {
+        jsonNumber.push(parseFloat(code[k]).toFixed(0))
 
+    };
     for (let l = 0; l < jsonNumber.length; l++) {
         if (jsonNumber[l + 1] < jsonNumber[l]) {
             let one = jsonNumber[l]
@@ -98,7 +124,7 @@ const CandleStick = (props) => {
             let fourth = jsonNumber[l - 3]
             const sonlar = [one, second, third, fourth]
             data.series[0].data.push({
-                x: new Date(1641215145200 + (l * 10000)),
+                x: new Date(1641215145200 + (l * 1000)),
                 y: sonlar
             })
 
@@ -112,11 +138,10 @@ const CandleStick = (props) => {
 
 
     return (
-        <div className="chart">
-            <ReactApexChart options={data.options} series={data.series} type="candlestick" height={400} width={1100} />
+        <div>
+            <ReactApexChart options={data.options} series={data.series} type="candlestick" height={350} />
         </div>
     )
 }
 
-
-export default CandleStick
+export default Test

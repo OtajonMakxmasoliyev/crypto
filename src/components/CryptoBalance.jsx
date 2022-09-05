@@ -36,8 +36,8 @@ const CryptoBalance = (props) => {
     return (
         <div className='cryptosBlock'>
             {
-                format.map((x) => (
-                    <div className='cryptosBlock__block'>
+                format.map((x, index) => (
+                    <div className='cryptosBlock__block' key={index}>
                         <div className="cryptosBlock__block_top">
                             <div className="cryptosBlock__block_top__logo" style={{ background: `${x.color}71` }}>
                                 <img src={x.logo} alt="" />
